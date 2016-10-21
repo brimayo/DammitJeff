@@ -21,7 +21,7 @@ html,body,#container {
 }
 #container > input {
     width:50%;    
-    height:12%;
+    height:10%;
     top:0; left:0; right:0; bottom:0;
     margin:auto;
 
@@ -29,6 +29,10 @@ html,body,#container {
     background-color: #FFF;
     border-radius: 0;
     -webkit-appearance: none;
+}
+#container > input#meltdown {
+	width: 100%;
+	font-size: 25pt;
 }
 </style>
 
@@ -39,7 +43,6 @@ $(function(){
 
 	$('input').click(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
-		audio.setAttribute('preload', 'auto');
 		audio.setAttribute('src', clipPath);
 		audio.play();
 	});
@@ -54,7 +57,8 @@ $(function(){
 	<input type="button" data-clip="gamechanger" value="GAME" /><input type="button" data-clip="jesus" value="JESUS" /><br />
 	<input type="button" data-clip="godm" value="GODDAMN" /><input type="button" data-clip="slow" value="SLOW" /><br />
 	<input type="button" data-clip="dammit" value="DAMMIT" /><input type="button" data-clip="gamechanger2" value="BIG GAME" /><br />
-	<input type="button" data-clip="bigpoint" value="BIG PT" /><input type="button" data-clip="jerk" value="JERK" />
+	<input type="button" data-clip="bigpoint" value="BIG PT" /><input type="button" data-clip="jerk" value="JERK" /><br />
+	<input type="button" data-clip="meltdown" value="MELTDOWN" id="meltdown" />
 	<br />
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<!-- Dammit Jeff -->
