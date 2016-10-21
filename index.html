@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+	<title>Dammit Jeff!</title>	
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+
+<style type="text/css">
+html,body,#container {
+    height:99%;
+}
+#container {
+    width:100%;
+    position:relative;
+}
+#container > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#container > input {
+    width:50%;    
+    height:12%;
+    top:0; left:0; right:0; bottom:0;
+    margin:auto;
+
+    font-size: 20pt;
+    background-color: #FFF;
+    border-radius: 0;
+    -webkit-appearance: none;
+}
+</style>
+
+<script type="text/javascript">
+$(function(){ 
+	var audio = document.createElement('audio');	
+	audio.setAttribute('preload', 'auto');
+
+	$('input').click(function() {
+		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
+		audio.setAttribute('preload', 'auto');
+		audio.setAttribute('src', clipPath);
+		audio.play();
+	});
+});	
+</script>
+
+<body>
+<div id="container">
+	<img src="paddle.png" alt="dammit jeff" /><br />
+	<input type="button" data-clip="ass" value="ASS" /><input type="button" data-clip="dork" value="DORK" /><br />
+	<input type="button" data-clip="awt" value="TITS" /><input type="button" data-clip="cmon" value="CMON" /><br />
+	<input type="button" data-clip="gamechanger" value="GAME" /><input type="button" data-clip="jesus" value="JESUS" /><br />
+	<input type="button" data-clip="godm" value="GODDAMN" /><input type="button" data-clip="slow" value="SLOW" /><br />
+	<input type="button" data-clip="dammit" value="DAMMIT" /><input type="button" data-clip="gamechanger2" value="BIG GAME" /><br />
+	<input type="button" data-clip="bigpoint" value="BIG PT" /><input type="button" data-clip="jerk" value="JERK" />
+	<br />
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<!-- Dammit Jeff -->
+	<ins class="adsbygoogle"
+	     style="display:inline-block;width:320px;height:100px"
+	     data-ad-client="ca-pub-6412040097686028"
+	     data-ad-slot="8023790493"></ins>
+	<script>
+	(adsbygoogle = window.adsbygoogle || []).push({});
+	</script>
+</div>
+</body>
+
+</html>
