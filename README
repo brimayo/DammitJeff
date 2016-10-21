@@ -1,1 +1,9 @@
-A quick web page soundboard using HTML5, jQuery and CSS.
+## DAMMIT JEFF ##
+
+### ABOUT ###
+
+This is a quick HTML5, jQuery and CSS based soundboard web page.
+
+ - Uses HTML5 <audio> tag to play .WAV files
+ - jQuery used to load <audio> tag with appropriate clip
+ - HTML and CSS to load page with <input> buttons that play clips.
