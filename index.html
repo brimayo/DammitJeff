@@ -41,15 +41,28 @@ $(function(){
 	var audio = document.createElement('audio');	
 	audio.setAttribute('preload', 'auto');
 
-	$('input').click(function() {
+	$('input[type=button]').click(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
 		audio.setAttribute('src', clipPath);
 		audio.play();
 	});
+
+	// preload clips for fast loading
+	var clipCount = $('input[type=button]').length;
+	$('input[type=button]').each(function() {
+		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
+		$.ajax({
+			url: clipPath
+		});
+		if (--clipCount == 0)
+		{
+			$('body').show();
+		}
+	});
 });	
 </script>
 
-<body>
+<body style="display:none;">
 <div id="container">
 	<img src="paddle.png" alt="dammit jeff" /><br />
 	<input type="button" data-clip="ass" value="ASS" /><input type="button" data-clip="dork" value="DORK" /><br />
