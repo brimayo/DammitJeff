@@ -10,10 +10,21 @@
 html,body,#container {
     height:99%;
 }
+#loading {
+    left: 0;
+    line-height: 200px;
+    margin: auto;
+    margin-top: -100px;
+    position: absolute;
+    top: 50%;
+ 	width: 100%;
+ 	font-family: "Impact", Times, serif;
+	font-size: 50px;
+	text-align: center;
+}
 #container {
     width:100%;
     position:relative;
-    opacity: 0.2;
 }
 #container > img {
     display: block;
@@ -26,19 +37,27 @@ html,body,#container {
     top:0; left:0; right:0; bottom:0;
     margin:auto;
 
-    font-size: 20pt;
+	font-family: "Impact", Times, serif;
+    font-size: 25pt;
     background-color: #FFF;
     border-radius: 0;
     -webkit-appearance: none;
 }
 #container > input#meltdown {
 	width: 100%;
-	font-size: 25pt;
+	font-size: 30pt;
 }
 </style>
 
 <script type="text/javascript">
 $(function(){ 
+	// hide clips by default until preloaded
+	$('input[type=button]').hide();
+
+	// show loading until preloaded
+	$('#loading').show();
+	$('#container').hide();
+
 	var audio = document.createElement('audio');	
 	audio.setAttribute('preload', 'auto');
 
@@ -55,10 +74,13 @@ $(function(){
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
 		$.ajax({
 			url: clipPath,
-	        success: function() {
+			item: $(this),
+	        success: function(data) {
+				this.item.show();
 				if (--clipCount == 0)
 				{
-					$('#container').css({ opacity: 1 });
+					$('#loading').hide();
+					$('#container').show();
 				}
 	        }			
 		});
@@ -67,6 +89,9 @@ $(function(){
 </script>
 
 <body>
+<div id="loading">
+	Loading...
+</div>
 <div id="container">
 	<img src="paddle.png" alt="dammit jeff" /><br />
 	<input type="button" data-clip="ass" value="ASS" /><input type="button" data-clip="dork" value="DORK" /><br />
