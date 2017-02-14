@@ -53,12 +53,14 @@ $(function(){
 	$('input[type=button]').each(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
 		$.ajax({
-			url: clipPath
+			url: clipPath,
+	        success: function() {
+				if (--clipCount == 0)
+				{
+					$('#container').css({ opacity: 1 });
+				}
+	        }			
 		});
-		if (--clipCount == 0)
-		{
-			$('#container').css({ opacity: 1 });
-		}
 	});
 });	
 </script>
