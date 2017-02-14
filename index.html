@@ -44,6 +44,7 @@ $(function(){
 
 	$('input[type=button]').click(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
+		audio.setAttribute('preload', 'auto');
 		audio.setAttribute('src', clipPath);
 		audio.play();
 	});
