@@ -13,6 +13,7 @@ html,body,#container {
 #container {
     width:100%;
     position:relative;
+    opacity: 0.2;
 }
 #container > img {
     display: block;
@@ -56,13 +57,13 @@ $(function(){
 		});
 		if (--clipCount == 0)
 		{
-			$('body').show();
+			$('#container').css({ opacity: 1 });
 		}
 	});
 });	
 </script>
 
-<body style="display:none;">
+<body>
 <div id="container">
 	<img src="paddle.png" alt="dammit jeff" /><br />
 	<input type="button" data-clip="ass" value="ASS" /><input type="button" data-clip="dork" value="DORK" /><br />
