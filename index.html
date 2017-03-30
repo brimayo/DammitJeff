@@ -1,6 +1,6 @@
 <html lang="en">
 <head>
-	<title>Dammit Jeff!</title>	
+	<title>Dammit Jeff!</title>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@ html,body,#container {
     margin-right: auto;
 }
 #container > input {
-    width:50%;    
+    width:50%;
     height:8%;
     top:0; left:0; right:0; bottom:0;
     margin:auto;
@@ -51,7 +51,7 @@ html,body,#container {
 </style>
 
 <script type="text/javascript">
-$(function(){ 
+$(function(){
 	// hide clips by default until preloaded
 	$('input[type=button]').hide();
 
@@ -59,7 +59,7 @@ $(function(){
 	$('#loading').show();
 	$('#container').hide();
 
-	var audio = document.createElement('audio');	
+	var audio = document.createElement('audio');
 	audio.setAttribute('preload', 'auto');
 
 	$('input[type=button]').click(function() {
@@ -71,8 +71,10 @@ $(function(){
 
 	// preload clips for fast loading
 	var clipCount = $('input[type=button]').length;
+	var clips = [];
 	$('input[type=button]').each(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
+		clips.push(clipPath);
 		$.ajax({
 			url: clipPath,
 			item: $(this),
@@ -83,10 +85,29 @@ $(function(){
 					$('#loading').hide();
 					$('#container').show();
 				}
-	        }			
+	        }
 		});
 	});
-});	
+
+	// meltdown functionality
+	var audioMT = document.createElement('audio');
+	var i = 1;
+	audioMT.addEventListener('ended', function(){
+		// loop through the rest of the clips
+		if (i < clips.length)
+		{
+			audioMT.setAttribute('src', clips[i]);
+			audioMT.play();
+			i++;
+		}
+	});
+	$('#meltdown').click(function() {
+		// play the first clip
+		audioMT.setAttribute('src', clips[0]);
+		audioMT.play();
+	});
+
+});
 </script>
 
 <body>
@@ -97,14 +118,24 @@ $(function(){
 	<img src="paddle.png" alt="dammit jeff" /><br />
 	<input type="button" data-clip="ass" value="ASS" /><input type="button" data-clip="dork" value="DORK" /><br />
 	<input type="button" data-clip="awt" value="TITS" /><input type="button" data-clip="cmon" value="CMON" /><br />
-	<input type="button" data-clip="gamechanger" value="GAME" /><input type="button" data-clip="jesus" value="JESUS" /><br />
+	<input type="button" data-clip="gamechanger" value="GAME" /><input type="button" data-clip="greed" value="GREED" /><br />
 	<input type="button" data-clip="godm" value="GODDAMN" /><input type="button" data-clip="slow" value="SLOW" /><br />
+	<input type="button" data-clip="slow2" value="SLOW 2" /><input type="button" data-clip="jesus" value="JESUS" /><br />
+	<input type="button" data-clip="jesus2" value="JESUS 2" /><input type="button" data-clip="jesus3" value="JESUS 3" /><br />
+	<input type="button" data-clip="jesustits" value="JESUS TITS" /><input type="button" data-clip="boom" value="BOOM" /><br />
 	<input type="button" data-clip="dammit" value="DAMMIT" /><input type="button" data-clip="gamechanger2" value="BIG GAME" /><br />
 	<input type="button" data-clip="bigpoint" value="BIG PT" /><input type="button" data-clip="jerk" value="JERK" /><br />
 	<input type="button" data-clip="cmon2" value="CMON 2" /><input type="button" data-clip="ooh" value="OOH" /><br />
 	<input type="button" data-clip="yes" value="YES" /><input type="button" data-clip="douche" value="DOUCHE" /><br />
-	<input type="button" data-clip="god" value="GOD" /><input type="button" data-clip="hoot" value="HOOT" /><br />	
-	<input type="button" data-clip="meltdown" value="MELTDOWN!" id="meltdown" />
+	<input type="button" data-clip="god" value="GOD" /><input type="button" data-clip="hoot" value="HOOT" /><br />
+	<input type="button" data-clip="huge" value="HUGE" /><input type="button" data-clip="huge2" value="HUGE 2" /><br />
+	<input type="button" data-clip="kidding" value="KIDDING" /><input type="button" data-clip="godkid" value="KIDDING 2" /><br />
+	<input type="button" data-clip="twss" value="T W S S" /><input type="button" data-clip="shot" value="SHOT" /><br />
+	<input type="button" data-clip="breadbasket" value="B. BASKET" /><input type="button" data-clip="stupid" value="STUPID" /><br /><br />
+	<img src="jeff.jpg" alt="my name is jeff" usemap="#mtMap" />
+	<map name="mtMap" id="mtMap">
+	    <area alt="meltdown" title="meltdown" id="meltdown" shape="poly" coords="51,145,44,179,97,187,105,157" />
+	</map>
 </div>
 </body>
 
