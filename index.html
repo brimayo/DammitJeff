@@ -76,22 +76,22 @@ $(function(){
 	});
 
 	// preload clips for fast loading
-	var clipCount = $('input[type=button]').length;
+	var clipCount = $('[data-clip]').length;
 	var clips = [];
-	$('input[type=button]').each(function() {
+	$('[data-clip]').each(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
 		clips.push(clipPath);
 		$.ajax({
 			url: clipPath,
 			item: $(this),
-	        success: function(data) {
+	    success: function(data) {
 				this.item.show();
 				if (--clipCount == 0)
 				{
 					$('#loading').hide();
 					$('#container').show();
 				}
-	        }
+	    }
 		});
 	});
 
