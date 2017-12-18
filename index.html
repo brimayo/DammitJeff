@@ -94,25 +94,6 @@ $(function(){
 	    }
 		});
 	});
-
-	// meltdown functionality
-	var audioMT = document.createElement('audio');
-	var i = 1;
-	audioMT.addEventListener('ended', function(){
-		// loop through the rest of the clips
-		if (i < clips.length)
-		{
-			audioMT.setAttribute('src', clips[i]);
-			audioMT.play();
-			i++;
-		}
-	});
-	$('#meltdown').click(function() {
-		// play the first clip
-		audioMT.setAttribute('src', clips[0]);
-		audioMT.play();
-	});
-
 });
 </script>
 
@@ -138,7 +119,7 @@ $(function(){
 	<input type="button" data-clip="kidding" value="KIDDING" /><input type="button" data-clip="godkid" value="KIDDING 2" /><br />
 	<input type="button" data-clip="twss" value="T W S S" /><input type="button" data-clip="shot" value="SHOT" /><br />
 	<input type="button" data-clip="breadbasket" value="B. BASKET" /><input type="button" data-clip="stupid" value="STUPID" /><br />
-	<input type="button" id="meltdown" value="MELTDOWN" /><br /><br />
+	<input type="button" data-clip="meltdown" value="MELTDOWN" /><br /><br />
 	<img src="jeff.jpg" alt="my name is jeff" /><br />
 	<div class="small">2017-12-18</div>
 </div>
