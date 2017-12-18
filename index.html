@@ -59,7 +59,7 @@ html,body,#container {
 <script type="text/javascript">
 $(function(){
 	// hide clips by default until preloaded
-	$('input[type=button]').hide();
+	$('[data-clip]').hide();
 
 	// show loading until preloaded
 	$('#loading').show();
@@ -68,7 +68,7 @@ $(function(){
 	var audio = document.createElement('audio');
 	audio.setAttribute('preload', 'auto');
 
-	$('input[type=button]').click(function() {
+	$('[data-clip]').click(function() {
 		var clipPath = 'clips/' + $(this).data('clip') + '.wav';
 		audio.setAttribute('preload', 'auto');
 		audio.setAttribute('src', clipPath);
